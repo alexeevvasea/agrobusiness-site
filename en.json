@@ -10,6 +10,14 @@
     "We consider all the needs of our customers."
   ],
   "products": "Our Products",
+  "products_description": "We offer a wide range: vegetables, fruits, cereals, and much more.",
+  "products_button": "Go to catalog",
   "services": "Our Services",
-  "about": "About Us"
+  "services_description": "Wholesale supplies, custom cultivation, and logistics services.",
+  "services_button": "Learn more about services",
+  "about": "About Us",
+  "about_description": "Our mission is to provide clients with the best products in the agricultural market, adhering to the highest quality standards.",
+  "about_button": "Learn more about us",
+  "footer_contact": "Contacts",
+  "footer_privacy": "Privacy Policy"
 }
