@@ -1,3 +1,30 @@
+function loadLanguage(lang) {
+  fetch(translations[lang])
+    .then(response => response.json())
+    .then(data => {
+      document.querySelector(".hero h1").textContent = data.welcome;
+      document.querySelector(".hero p").textContent = data.description;
+      document.querySelector(".btn").textContent = data.contact_us;
+      document.querySelector(".features h2").textContent = data.features;
+      document.querySelectorAll(".feature").forEach((feature, index) => {
+        feature.querySelector("h3").textContent = data.feature_titles[index];
+        feature.querySelector("p").textContent = data.feature_descriptions[index];
+      });
+      document.querySelector(".products h2").textContent = data.products;
+      document.querySelector(".products p").textContent = data.products_description;
+      document.querySelector(".products .btn").textContent = data.products_button;
+      document.querySelector(".services h2").textContent = data.services;
+      document.querySelector(".services p").textContent = data.services_description;
+      document.querySelector(".services .btn").textContent = data.services_button;
+      document.querySelector(".about h2").textContent = data.about;
+      document.querySelector(".about p").textContent = data.about_description;
+      document.querySelector(".about .btn").textContent = data.about_button;
+      document.querySelector(".footer-nav a[href='contacts.html']").textContent = data.footer_contact;
+      document.querySelector(".footer-nav a[href='privacy.html']").textContent = data.footer_privacy;
+    })
+    .catch(error => console.error("Ошибка загрузки перевода:", error));
+}
+
 const translations = {
   ru: "translations/ru.json",
   ro: "translations/ro.json",
