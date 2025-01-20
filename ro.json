@@ -1,1 +1,15 @@
-
+{
+  "welcome": "Bun venit la afacerea noastră agricolă",
+  "description": "Produse de înaltă calitate, parteneri de încredere, cele mai bune condiții de cooperare.",
+  "contact_us": "Contactați-ne",
+  "features": "Avantajele noastre",
+  "feature_titles": ["Calitate", "Fiabilitate", "Abordare individuală"],
+  "feature_descriptions": [
+    "Doar cele mai bune soiuri și produse proaspete.",
+    "Respectarea termenelor de livrare și a acordurilor.",
+    "Luăm în considerare toate nevoile clienților noștri."
+  ],
+  "products": "Produsele noastre",
+  "services": "Serviciile noastre",
+  "about": "Despre noi"
+}
