@@ -1,1 +1,15 @@
-
+{
+  "welcome": "Welcome to our agribusiness",
+  "description": "High-quality products, reliable partners, the best cooperation conditions.",
+  "contact_us": "Contact Us",
+  "features": "Our Advantages",
+  "feature_titles": ["Quality", "Reliability", "Individual Approach"],
+  "feature_descriptions": [
+    "Only the best varieties and fresh products.",
+    "Compliance with delivery times and agreements.",
+    "We consider all the needs of our customers."
+  ],
+  "products": "Our Products",
+  "services": "Our Services",
+  "about": "About Us"
+}
