@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Агробизнес</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">Агробизнес</a>
+      </div>
+      <div class="language-switcher">
+        <ul>
+          <li><a href="#" data-lang="ru" class="active">Русский</a></li>
+          <li><a href="#" data-lang="ro">Română</a></li>
+          <li><a href="#" data-lang="en">English</a></li>
+        </ul>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="products.html">Продукция</a></li>
+          <li><a href="services.html">Услуги</a></li>
+          <li><a href="about.html">О компании</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Главный контент -->
+  <main>
+    <!-- Главная страница -->
+    <section class="hero">
+      <div class="container">
+        <h1>Добро пожаловать в наш агробизнес</h1>
+        <p>Качественная продукция, надёжные партнёры, лучшие условия сотрудничества.</p>
+        <a href="contacts.html" class="btn">Связаться с нами</a>
+      </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features">
+      <div class="container">
+        <h2>Наши преимущества</h2>
+        <div class="feature-list">
+          <div class="feature">
+            <h3>Качество</h3>
+            <p>Только лучшие сорта и свежая продукция.</p>
+          </div>
+          <div class="feature">
+            <h3>Надёжность</h3>
+            <p>Соблюдение сроков поставок и договорённостей.</p>
+          </div>
+          <div class="feature">
+            <h3>Индивидуальный подход</h3>
+            <p>Мы учитываем все потребности наших клиентов.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Каталог продукции -->
+    <section class="products">
+      <div class="container">
+        <h2>Наша продукция</h2>
+        <p>Мы предлагаем широкий ассортимент: овощи, фрукты, зерновые культуры и многое другое.</p>
+        <a href="products.html" class="btn">Перейти в каталог</a>
+      </div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="services">
+      <div class="container">
+        <h2>Наши услуги</h2>
+        <p>Оптовые поставки, выращивание под заказ и услуги логистики.</p>
+        <a href="services.html" class="btn">Подробнее об услугах</a>
+      </div>
+    </section>
+
+    <!-- О компании -->
+    <section class="about">
+      <div class="container">
+        <h2>О компании</h2>
+        <p>Наша миссия — обеспечивать клиентов лучшими продуктами аграрного рынка, соблюдая высочайшие стандарты качества.</p>
+        <a href="about.html" class="btn">Подробнее о нас</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал сайта -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Агробизнес. Все права защищены.</p>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="contacts.html">Контакты</a></li>
+          <li><a href="privacy.html">Политика конфиденциальности</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      ru: "ru.json",
+      ro: "ro.json",
+      en: "en.json"
+    };
+
+    function loadLanguage(lang) {
+      fetch(translations[lang])
+        .then(response => response.json())
+        .then(data => {
+          document.querySelector(".hero h1").textContent = data.welcome;
+          document.querySelector(".hero p").textContent = data.description;
+          document.querySelector(".btn").textContent = data.contact_us;
+          document.querySelector(".features h2").textContent = data.features;
+          document.querySelectorAll(".feature").forEach((feature, index) => {
+            feature.querySelector("h3").textContent = data.feature_titles[index];
+            feature.querySelector("p").textContent = data.feature_descriptions[index];
+          });
+          document.querySelector(".products h2").textContent = data.products;
+          document.querySelector(".services h2").textContent = data.services;
+          document.querySelector(".about h2").textContent = data.about;
+        })
+        .catch(error => console.error("Ошибка загрузки перевода:", error));
+    }
+
+    document.querySelectorAll('.language-switcher a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('.language-switcher a').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        const selectedLang = link.dataset.lang;
+        loadLanguage(selectedLang);
+        localStorage.setItem("selectedLang", selectedLang);
+      });
+    });
+
+    const savedLang = localStorage.getItem("selectedLang") || "ru";
+    document.querySelector(`[data-lang="${savedLang}"]`).classList.add("active");
+    loadLanguage(savedLang);
+  </script>
+</body>
+</html>
