@@ -1,0 +1,5 @@
+const translations = {
+  ru: "translations/ru.json",
+  ro: "translations/ro.json",
+  en: "translations/en.json"
+};
